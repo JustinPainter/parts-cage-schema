@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "#/schema/luminaire.schema.json",
+  "title": "Luminaire Schema",
+  "description": "Describes a luminaire stored in the warehouse.",
+  "type": "object",
+  "properties": {
+    "brand": {
+      "description": "Name of manufacturer's brand.",
+      "type": "string"
+    },
+    "upc": {
+      "description": "Luminaire's UPC code.",
+      "type": "string"
+    },
+    "emergency": {
+      "description": "Is luminaire an emergency light fixture?",
+      "type": "boolean"
+    },
+    "exit": {
+      "description": "Is luminaire an exit sign?",
+      "type": "boolean"
+    },
+    "battery": {
+      "description": "Does the luminaire have a battery backup?",
+      "type": "boolean"
+    },
+    "voltage": {
+      "description": "Luminaire's rated voltage.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "uom": {
+          "description": "Unit Of Measure",
+          "type": "string",
+          "const": "volts"
+        }
+      }
+    },
+    "wattage": {
+      "description": "Luminaire's rated wattage.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "uom": {
+          "description": "Unit Of Measure",
+          "type": "string",
+          "const": "watts"
+        }
+      }
+    },
+    "lumenOutput": {
+      "description": "Luminaire's output in lumens.",
+      "type": "object",
+      "properties": {
+        "value": {
+          "type": "number"
+        },
+        "uom": {
+          "description": "Unit Of Measure",
+          "type": "string",
+          "const": "lumens"
+        }
+      },
+      "colorTemperature": {
+        "description": "Luminaire's color temperature in Kelvins.",
+        "type": "object",
+        "properties": {
+          "value": {
+            "type": "number"
+          },
+          "uom": {
+            "description": "Unit Of Measure",
+            "type": "string",
+            "const": "kelvin"
+          },
+          "uomPosition": {
+            "description": "Specifies if UOM is a prefix or suffix.",
+            "type": "string",
+            "enum": [ "prefix", "suffix" ]
+          }
+        }
+      },
+      "lampType": {
+        "description": "Type of lamp (LED, CFL, incandescent, etc.).",
+        "type": "string",
+        "enum": [
+          "cfl",
+          "fluorescent",
+          "hid",
+          "incandescent",
+          "led",
+          "metalHalide"
+        ]
+      },
+      "mount": {
+        "description": "Class or type of luminaire.",
+        "type": "string",
+        "enum": [
+          "layIn",
+          "recessed",
+          "wallpack",
+          "surfaceMount",
+          "track",
+          "pendant"
+        ]
+      }
+    }
+  }
+}

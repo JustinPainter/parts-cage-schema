@@ -1,0 +1,75 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "#/conduit",
+  "title": "Conduit Schema",
+  "description": "Describes a unit of electrical conduit",
+  "type": "object",
+  "properties": {
+    "conduitType": {
+      "type": "string",
+      "enum": [
+        "emt",
+        "ent",
+        "fmc",
+        "fmt",
+        "imc",
+        "lfmc",
+        "lfnc",
+        "pvc40",
+        "pvc80",
+        "rmc"
+      ]
+    },
+    "tradeSize": {
+      "description": "Industry standard trade sizes",
+      "enum": [
+        "1/2",
+        "3/4",
+        "1",
+        "1-1/4",
+        "1-1/2",
+        "2",
+        "2-1/2",
+        "3",
+        "3-1/2",
+        "4"
+      ]
+    },
+    "supplierPrices": {
+      "description": "List of prices from suppliers",
+      "type": "array",
+      "items": {
+        "type": "number",
+        "exclusiveMinimum": 0
+      },
+      "uniqueItems": false
+    },
+    "targetPrice": {
+      "description": "Average price from suppliers",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "tradePrice": {
+      "description": "Manufacturer's MSRP",
+      "type": "number",
+      "exclusiveMinimum": 0
+    },
+    "pricePer": {
+      "description": "Unit of measure that item is priced by.",
+      "enum": [ "in", "ft" ]
+    },
+    "unitSize": {
+      "description": "Number of price units that make up one whole item",
+      "type": "integer",
+      "exclusiveMinimum": 0
+    },
+    "stockUom": {
+      "description": "Unit of measure used to quantify amount of item in stock",
+      "enum": [ "in", "ft", "unit" ]
+    },
+    "stockQuantity": {
+      "description": "Number of items in stock",
+      "type": "integer"
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "$id": "#/panelboard",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Panelboard Schema",
+  "type": "object",
+  "properties": {
+    "panelType": {
+      "description": "Is a main breaker panel, main lug panel, or a sub-panel?",
+      "enum": [ "mcb", "mlo", "sub" ]
+    }
+  }
+}

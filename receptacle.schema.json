@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "$id": "#/receptacles",
+  "description": "Describes an electrical receptacle",
+  "type": "object",
+  "properties": {
+    "blades": {
+      "description": "Method of retention once blades are inserted",
+      "enum": [ "straightBlade", "turnLock" ]
+    },
+    "ampacity": {
+      "description": "Amount of current in amperes that the receptacle is rated to handle",
+      "enum": [ 15, 20, 30, 40, 50, 60 ]
+    },
+    "voltage": {
+      "description": "Level of voltage that the receptacle is rated to handle",
+      "type": "array",
+      "items": [ { "const": 125 }, { "const": 250 } ],
+      "uniqueItems": true,
+      "minItems": 1,
+      "maxItems": 2
+    },
+    "grade": {
+      "description": "Grade rating of receptacle",
+      "enum": [ "residential", "commercial", "hospital" ]
+    },
+    "faceplate": {
+      "description": "Style of faceplate that recptacle is designed for",
+      "enum": [ "standard", "decora" ]
+    },
+    "color": {
+      "description": "Color of receptacle",
+      "enum": [
+        "almond",
+        "blue",
+        "black",
+        "brown",
+        "clear",
+        "gray",
+        "lightAlmond",
+        "ivory",
+        "red",
+        "orange",
+        "white"
+      ]
+    },
+    "ungrounded": {
+      "description": "Is this a two-prong, ungrounded receptacle?"
+    },
+    "spd": {
+      "description": "Is the receptacle surge-protected?",
+      "type": "boolean"
+    },
+    "ig": {
+      "description": "Does the receptacle have an isolated ground?",
+      "type": "boolean"
+    },
+    "wr": {
+      "description": "Is the receptacle weather-resistant?",
+      "type": "boolean"
+    },
+    "tr": {
+      "description": "Is the receptacle tamper-resistant?"
+    },
+    "gfci": {
+      "description": "Does the recpetacle offer ground fault circuit protection?",
+      "type": "boolean"
+    },
+    "afci": {
+      "description": "Does the receptacle offer arc fault circuit protection?",
+      "type": "boolean"
+    },
+    "classTwo": {
+      "description": "Does the receptacle contain any class 2 devices/outlets (USB charger, night light, etc.)?"
+    },
+    "yoke": {
+      "description": "Number of outlets on the receptacle's yoke",
+      "enum": [ "simplex", "duplex", "triplex", "quadplex" ]
+    },
+    "combination": {
+      "description": "Is recptacle part of a combination device?",
+      "type": "boolean"
+    },
+    "smart": {
+      "description": "Does this receptacle integrate with a smart control system?",
+      "type": "boolean"
+    }
+  }
+}

@@ -1,0 +1,46 @@
+{
+  "$id": "#/safetySwitch",
+  "$schema": "http://json-schema.org/draft-07/schema",
+  "title": "Safety Switch Schema",
+  "type": "object",
+  "properties": {
+    "fusible": {
+      "description": "Is disconnect equipped for use with fuses?",
+      "type": "boolean"
+    },
+    "ampacityRating": {
+      "description": "Maximum current the disconnect is rated to handle.",
+      "enum": [
+        30,
+        60,
+        100,
+        200,
+        400,
+        600,
+        800,
+        1200,
+        1600,
+        2000,
+        2500,
+        3000,
+        4000
+      ]
+    },
+    "voltageRating": {
+      "description": "Maximum voltage the disconnect is rated to handle.",
+      "enum": [ 240, 600 ]
+    },
+    "poles": {
+      "description": "Number of poles switch is rated to disconnect.",
+      "enum": [ 1, 2, 3 ]
+    },
+    "heavyDuty": {
+      "description": "Is this a heavy duty disconnect?",
+      "type": "boolean"
+    },
+    "nemaRating": {
+      "description": "NEMA rating of disconnect.",
+      "enum": [ "1", "3R", "12" ]
+    }
+  }
+}
